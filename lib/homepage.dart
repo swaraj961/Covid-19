@@ -1,13 +1,38 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'const.dart';
 import 'package:covidindia/pannels/worldwide_pannel.dart';
-
+import 'package:http/http.dart' as http;
+const String apiurl = 'https://corona.lmao.ninja/v2/all';
 class Homepage extends StatefulWidget {
   @override
   _HomepageState createState() => _HomepageState();
 }
 
 class _HomepageState extends State<Homepage> {
+Map worldData;
+Future<dynamic> getWorldwideData() async{
+try{
+ http.Response response =  await http.get('$apiurl');
+  setState(() {
+     worldData = jsonDecode(response.body);
+  });
+} catch (e)
+{
+  print('cant fetch data');
+}
+ 
+ 
+}
+@override
+  void initState() {
+    
+    super.initState();
+    getWorldwideData();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +58,7 @@ class _HomepageState extends State<Homepage> {
                     ),
                   ],
                 ),
-//  color: Colors.yellowAccent.shade200,
+
                 image: DecorationImage(
                     image: AssetImage('images/022-coronavirus.png'),
                     colorFilter: ColorFilter.mode(
@@ -65,7 +90,7 @@ class _HomepageState extends State<Homepage> {
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Poppins'),
             ),
-            WorldwidePannel(),
+          worldData == null ?CircularProgressIndicator(): WorldwidePannel(data: worldData,),
           ],
         ),
       ),

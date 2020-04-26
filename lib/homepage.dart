@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'const.dart';
+import 'package:covidindia/pannels/worldwide_pannel.dart';
 
 class Homepage extends StatefulWidget {
   @override
@@ -13,6 +14,7 @@ class _HomepageState extends State<Homepage> {
       appBar: AppBar(
         title: Text(
           'Covid-19 Tracker',
+          style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -23,6 +25,7 @@ class _HomepageState extends State<Homepage> {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
+                  end: Alignment.topRight,
                   colors: [
                     Color(0xfffdd835),
                     Color(
@@ -48,10 +51,21 @@ class _HomepageState extends State<Homepage> {
                   style: TextStyle(
                       color: Color(0xff37474f),
                       fontSize: 18,
-                      fontWeight: FontWeight.w500),
+                      fontWeight: FontWeight.w500,
+                      ),
+                      
                 ),
               ),
             ),
+            SizedBox(height: 5,),
+            Text(
+              'Wordwide ',
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Poppins'),
+            ),
+            WorldwidePannel(),
           ],
         ),
       ),

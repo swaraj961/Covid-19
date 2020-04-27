@@ -6,10 +6,11 @@ class MosteffectedPannel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: ListView.builder(
+        physics: ScrollPhysics(),
         itemCount: 5,
         shrinkWrap: true,
         itemBuilder: (context,index) => Container(
-          margin: EdgeInsets.symmetric(vertical: 8),
+          margin: EdgeInsets.symmetric(vertical: 10),
         child: Row( 
           //cause we want to how rowise data of each country
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

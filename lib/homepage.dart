@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'const.dart';
 import 'package:covidindia/pannels/worldwide_pannel.dart';
 import 'package:http/http.dart' as http;
-
-
+import 'package:covidindia/pannels/info_pannel.dart';
 
 const String apiurl = 'https://corona.lmao.ninja/v2';
 
@@ -26,12 +25,14 @@ class _HomepageState extends State<Homepage> {
       print('cant fetch data');
     }
   }
-List countrydata;
+
+  List countrydata;
   Future<dynamic> getmostAffectedcountries() async {
     try {
-      http.Response response = await http.get('$apiurl/countries?yesterday=false&sort=deaths');
+      http.Response response =
+          await http.get('$apiurl/countries?yesterday=false&sort=deaths');
       setState(() {
-       countrydata = jsonDecode(response.body);
+        countrydata = jsonDecode(response.body);
       });
     } catch (e) {
       print('cant fetch data');
@@ -52,13 +53,11 @@ List countrydata;
         title: Text(
           'Covid-19 Tracker',
           style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.bold),
-
         ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Column(
-        
           children: <Widget>[
             Container(
               decoration: BoxDecoration(
@@ -95,7 +94,7 @@ List countrydata;
               ),
             ),
             SizedBox(
-              height: 6,
+              height: 10,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
@@ -107,7 +106,7 @@ List countrydata;
                     style: kTextdecoration,
                   ),
                   Material(
-                    elevation: 5,
+                    elevation: 7,
                     color: Color(0xff263238),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
@@ -132,12 +131,19 @@ List countrydata;
                 : WorldwidePannel(
                     data: worldData,
                   ),
-                     Text(
-                    'Most Effected Countries ',
-                    style: kTextdecoration,
+            Text(
+              'Most Effected Countries ',
+              style: kTextdecoration,
+            ),
+            SizedBox(height: 10),
+            countrydata == null
+                ? Container()
+                : MosteffectedPannel(
+                    countrydata: countrydata,
                   ),
-                  SizedBox(height:5),
-                countrydata == null ? Container() :MosteffectedPannel(countrydata:countrydata ,)
+            SizedBox(height: 10),
+            Infopannel(),
+             SizedBox(height: 50),
           ],
         ),
       ),

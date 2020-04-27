@@ -5,6 +5,7 @@ import 'const.dart';
 import 'package:covidindia/pannels/worldwide_pannel.dart';
 import 'package:http/http.dart' as http;
 import 'package:covidindia/pannels/info_pannel.dart';
+import 'package:covidindia/pages/countrystats.dart';
 
 const String apiurl = 'https://corona.lmao.ninja/v2';
 
@@ -51,7 +52,7 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Covid-19 Tracker',
+          'Covid-19 Tracker 😷',
           style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -112,7 +113,9 @@ class _HomepageState extends State<Homepage> {
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: MaterialButton(
-                      onPressed: null,
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>CountryPage(),),);
+                      },
                       child: Text(
                         'Regional',
                         style: TextStyle(
@@ -131,6 +134,7 @@ class _HomepageState extends State<Homepage> {
                 : WorldwidePannel(
                     data: worldData,
                   ),
+                  SizedBox(height:10),
             Text(
               'Most Effected Countries ',
               style: kTextdecoration,
@@ -146,9 +150,9 @@ class _HomepageState extends State<Homepage> {
             SizedBox(
               height:15
             ),
-             Text('💉\tTogether We Can Win\t❤',style: TextStyle(color: Colors.black,fontSize: 22, fontFamily: 'Poppins',
-             fontWeight: FontWeight.w700)
-             ,),
+             Text('💉\tTogether We Can Win\t❤',style: TextStyle(color: Colors.black,fontSize: 20, fontFamily: 'Poppins',
+             fontWeight: FontWeight.w700,),
+          ),
              SizedBox(height: 50),
             
           ],

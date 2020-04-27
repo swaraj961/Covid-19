@@ -143,7 +143,14 @@ class _HomepageState extends State<Homepage> {
                   ),
             SizedBox(height: 10),
             Infopannel(),
+            SizedBox(
+              height:15
+            ),
+             Text('💉\tTogether We Can Win\t❤',style: TextStyle(color: Colors.black,fontSize: 22, fontFamily: 'Poppins',
+             fontWeight: FontWeight.w700)
+             ,),
              SizedBox(height: 50),
+            
           ],
         ),
       ),

@@ -1,5 +1,8 @@
-
-
+import 'package:flutter/material.dart';
+const kTextdecoration = TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Poppins');
 class DataSource {
  static String qoute =
       "Nothing in life is to be feared, it is only to be understood Now is the time to understand more, so that we may fear less.";

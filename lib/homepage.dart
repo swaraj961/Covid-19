@@ -103,7 +103,7 @@ List countrydata;
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    'Wordwide ',
+                    'Wordwide Covid-19 ',
                     style: kTextdecoration,
                   ),
                   Material(

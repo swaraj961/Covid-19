@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:dynamic_theme/dynamic_theme.dart';
 
 const String apiurl = 'https://corona.lmao.ninja/v2';
 
@@ -42,26 +43,29 @@ class _CountryPageState extends State<CountryPage> {
       body: countrydata==null ? Center(child: CircularProgressIndicator()):ListView.builder(
         itemCount: countrydata == null? 0 :countrydata.length,
         itemBuilder: (context, index) => Container(
+          
           margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
       height: 140,
-      decoration: BoxDecoration(
+      decoration: Theme.of(context).brightness==Brightness.light ? BoxDecoration( 
         color: Colors.white,
-        boxShadow: [BoxShadow(color:Colors.grey[100],blurRadius: 10,offset:Offset(0, 10),),],
+        boxShadow: [BoxShadow(color:Colors.grey[100],blurRadius: 1,offset:Offset(0, 10),),],
 
-      ),
+      ):null,
       child: Row(
         children: <Widget>[
-          Container(
+          Container( //container1
             margin: EdgeInsets.symmetric(vertical:10,horizontal:25),
             child:Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(countrydata[index]['country'],style: TextStyle(fontWeight: FontWeight.bold),),
+                SizedBox(height:10),
                 Image.network((countrydata[index]['countryInfo']['flag']),height: 50,width: 60,)
               ],
             ),
           ),
-          Expanded(child: Container(
+          Expanded(child: Container( //container2
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -69,7 +73,7 @@ class _CountryPageState extends State<CountryPage> {
                Text('ACTIVE :'+countrydata[index]['active'].toString(),style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold,fontSize: 15)),
                 Text('RECOVERED :'+countrydata[index]['recovered'].toString(),style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold,fontSize: 15)),
                  Text('CRITICAL :'+countrydata[index]['critical'].toString(),style: TextStyle(color: Colors.orangeAccent.shade700,fontWeight: FontWeight.bold,fontSize: 15)), //0.critical
-                  Text('DEATH :'+countrydata[index]['deaths'].toString(),style: TextStyle(color: Colors.grey.shade800,fontWeight: FontWeight.bold,fontSize: 15)),
+                  Text('DEATH :'+countrydata[index]['deaths'].toString(),style: Theme.of(context).brightness==Brightness.light ?TextStyle(color: Colors.grey.shade800,fontWeight: FontWeight.bold,fontSize: 15):TextStyle(color: Colors.grey.shade100,fontWeight: FontWeight.bold,fontSize: 15)),
             ],
             ),
           ))

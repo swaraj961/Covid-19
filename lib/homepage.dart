@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:covidindia/pannels/most_effected_pannel.dart';
+import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
 import 'const.dart';
 import 'package:covidindia/pannels/worldwide_pannel.dart';
@@ -51,6 +52,14 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: <Widget>[
+        
+          IconButton(icon:Icon(Theme.of(context).brightness==Brightness.light ?Icons.lightbulb_outline :Icons.highlight,color: Colors.white,), onPressed: (){
+            DynamicTheme.of(context).setBrightness(Theme.of(context).brightness == Brightness.light? Brightness.dark:Brightness.light);
+     
+          },
+          )
+        ],
         title: Text(
           'Covid-19 Tracker 😷',
           style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.bold),
@@ -75,7 +84,7 @@ class _HomepageState extends State<Homepage> {
                 image: DecorationImage(
                     image: AssetImage('images/022-coronavirus.png'),
                     colorFilter: ColorFilter.mode(
-                        Colors.yellow.withOpacity(0.50), BlendMode.dstOut),
+                        Colors.yellow.withOpacity(0.35), BlendMode.dstOut),
                     fit: BoxFit.fitHeight),
               ),
               width: double.infinity,
@@ -87,10 +96,13 @@ class _HomepageState extends State<Homepage> {
                 child: Text(
                   DataSource.qoute,
                   style: TextStyle(
+                    
                     color: Color(0xff37474f),
-                    fontSize: 18,
+                    fontSize: 15,
+                    
                     fontWeight: FontWeight.w500,
                   ),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ),
@@ -107,8 +119,9 @@ class _HomepageState extends State<Homepage> {
                     style: kTextdecoration,
                   ),
                   Material(
-                    elevation: 7,
-                    color: Color(0xff263238),
+                    elevation: 10,
+                    color: Colors.red.shade600,
+                    //Color(0xff263238),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -117,7 +130,7 @@ class _HomepageState extends State<Homepage> {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>CountryPage(),),);
                       },
                       child: Text(
-                        'Regional',
+                        'Regional 🌎',
                         style: TextStyle(
                             fontSize: 16,
                             color: Colors.white,

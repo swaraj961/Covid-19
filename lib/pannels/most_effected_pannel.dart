@@ -15,6 +15,7 @@ class MosteffectedPannel extends StatelessWidget {
           //cause we want to how rowise data of each country
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           
+          
           children: <Widget>[
             Image.network(countrydata[index]['countryInfo']['flag'],height: 23,),
             SizedBox(width:6),

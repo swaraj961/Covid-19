@@ -110,7 +110,7 @@ class _HomepageState extends State<Homepage> {
                   height: 120,
                   padding: EdgeInsets.all(10),
                   child: Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.symmetric(vertical:5,horizontal: 10),
                     child: Text(
                       DataSource.qoute,
                       style: TextStyle(
@@ -127,15 +127,34 @@ class _HomepageState extends State<Homepage> {
                 height: 10,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       'Wordwide Covid-19 ',
+                      
                       style: kTextdecoration,
                     ),
-                    Material(
+                    
+                    
+                  ],
+                ),
+              ),
+              SizedBox(height:5),
+              worldData == null
+                  ? CircularProgressIndicator()
+                  : WorldwidePannel(
+                      data: worldData,
+                    ),
+              SizedBox(height: 10),
+              Text(
+                'Most Effected Countries ',
+                style: kTextdecoration,
+              ),
+              SizedBox(height: 10),
+              Material(
                       elevation: 10,
                       color: Colors.red.shade600,
                       //Color(0xff263238),
@@ -143,6 +162,7 @@ class _HomepageState extends State<Homepage> {
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: MaterialButton(
+                        
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -161,21 +181,7 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                     ),
-                  ],
-                ),
-              ),
-              SizedBox(height:5),
-              worldData == null
-                  ? CircularProgressIndicator()
-                  : WorldwidePannel(
-                      data: worldData,
-                    ),
-              SizedBox(height: 10),
-              Text(
-                'Most Effected Countries ',
-                style: kTextdecoration,
-              ),
-              SizedBox(height: 10),
+                    SizedBox(height:15),
               countrydata == null
                   ? Container()
                   : MosteffectedPannel(

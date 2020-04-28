@@ -54,10 +54,10 @@ class Search extends SearchDelegate{
       child: Row(
         children: <Widget>[
           Container( //container1
-            margin: EdgeInsets.symmetric(vertical:10,horizontal:25),
+            margin: EdgeInsets.symmetric(vertical:10,horizontal:15),
             child:Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              
               children: <Widget>[
                 Text(suggestionlist[index]['country'],style: TextStyle(fontWeight: FontWeight.bold),),
                 SizedBox(height:10),
@@ -65,9 +65,11 @@ class Search extends SearchDelegate{
               ],
             ),
           ),
-          Expanded(child: Container( //container2
+          Expanded(child: Container( 
+           //container2
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+            
             children: <Widget>[
               Text('CONFIRMED :'+suggestionlist[index]['cases'].toString(),style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold,fontSize: 15),),
                Text('ACTIVE :'+suggestionlist[index]['active'].toString(),style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold,fontSize: 15)),

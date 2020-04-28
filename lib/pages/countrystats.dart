@@ -85,6 +85,7 @@ class _CountryPageState extends State<CountryPage> {
           Expanded(child: Container( //container2
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+             
             children: <Widget>[
               Text('CONFIRMED :'+countrydata[index]['cases'].toString(),style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold,fontSize: 15),),
                Text('ACTIVE :'+countrydata[index]['active'].toString(),style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold,fontSize: 15)),
@@ -93,7 +94,7 @@ class _CountryPageState extends State<CountryPage> {
                   Text('DEATH :'+countrydata[index]['deaths'].toString(),style: Theme.of(context).brightness==Brightness.light ?TextStyle(color: Colors.grey.shade800,fontWeight: FontWeight.bold,fontSize: 15):TextStyle(color: Colors.grey.shade100,fontWeight: FontWeight.bold,fontSize: 15)),
             ],
             ),
-          ))
+          ),)
         ], 
       ),
         ),

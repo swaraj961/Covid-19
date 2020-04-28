@@ -1,7 +1,8 @@
+import 'package:covidindia/pages/search.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:dynamic_theme/dynamic_theme.dart';
+
 
 const String apiurl = 'https://corona.lmao.ninja/v2';
 
@@ -32,6 +33,15 @@ class _CountryPageState extends State<CountryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: <Widget>[
+   
+
+          IconButton(icon: Icon(Icons.search),color: Colors.white,
+          disabledColor: Colors.white, onPressed: (){
+            showSearch(context: context, delegate:Search(countrylist: countrydata),);
+          }),
+   
+        ],
         title: Text(
           'Country Stats \t 🌏'
           ,

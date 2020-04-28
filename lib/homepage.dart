@@ -217,6 +217,7 @@ class _HomepageState extends State<Homepage> {
                   fontSize: 10,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w700,
+                  color: Colors.grey
                 ),
               ),
               SizedBox(height: 40),

@@ -38,12 +38,13 @@ class _CountryPageState extends State<CountryPage> {
 
           IconButton(icon: Icon(Icons.search),color: Colors.white,
           disabledColor: Colors.white, onPressed: (){
+            countrydata == null ? CircularProgressIndicator(semanticsLabel: 'Please wait',):
             showSearch(context: context, delegate:Search(countrylist: countrydata),);
           }),
    
         ],
         title: Text(
-          'Country Stats \t 🌏'
+          '\tCountry Stats\t🌏'
           ,
           style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.bold),
           

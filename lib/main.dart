@@ -10,8 +10,7 @@ class Myapp extends StatelessWidget {
     return DynamicTheme(
       defaultBrightness: Brightness.light,
        data: (brightness) => ThemeData(
-      //  iconTheme: IconThemeData(color:Colors.white),
-        //  appBarTheme: AppBarTheme(color: Colors.red),
+     
        fontFamily: 'Poppins',
           primaryColor: Color(0xff263238),
           brightness: brightness ==  Brightness.light

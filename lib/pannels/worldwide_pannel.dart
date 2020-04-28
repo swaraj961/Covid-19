@@ -19,7 +19,7 @@ class WorldwidePannel extends StatelessWidget {
            
               panneltittle: 'CONFIRMED',
               pannelcolor: Colors.red.shade100,
-              textcolor: Colors.red,
+              textcolor: Colors.red.shade700,
               count: data['cases'].toString(),
                backimage: DecorationImage(image: AssetImage('images/022-coronavirus.png'),
               colorFilter: ColorFilter.mode(Colors.red.withOpacity(0.40), BlendMode.dstATop) ,fit: BoxFit.fitWidth,
@@ -36,7 +36,7 @@ class WorldwidePannel extends StatelessWidget {
           Statuspannel(
               panneltittle: 'RECOVERED',
               pannelcolor: Colors.green.shade100,
-              textcolor: Colors.green,
+              textcolor: Colors.green.shade700,
               count: data['recovered'].toString(),
               backimage: DecorationImage(image: AssetImage('images/patient.png'),
               colorFilter: ColorFilter.mode(Colors.green.withOpacity(0.20), BlendMode.dstATop) ,fit: BoxFit.fitWidth,
@@ -46,7 +46,7 @@ class WorldwidePannel extends StatelessWidget {
           Statuspannel(
               panneltittle: 'DEATH',
               pannelcolor: Colors.grey.shade400,
-              textcolor: Colors.grey.shade100,
+              textcolor: Colors.grey.shade700,
               count: data['deaths'].toString(),
                backimage: DecorationImage(image: AssetImage('images/dead.png'),
               colorFilter: ColorFilter.mode(Colors.grey.withOpacity(0.20), BlendMode.dstATop) ,fit: BoxFit.fitWidth,

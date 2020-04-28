@@ -53,14 +53,20 @@ class _CountryPageState extends State<CountryPage> {
       body: countrydata==null ? Center(child: CircularProgressIndicator()):ListView.builder(
         itemCount: countrydata == null? 0 :countrydata.length,
         itemBuilder: (context, index) => Container(
-          
+        
           margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
       height: 140,
       decoration: Theme.of(context).brightness==Brightness.light ? BoxDecoration( 
         color: Colors.white,
-        boxShadow: [BoxShadow(color:Colors.grey[100],blurRadius: 1,offset:Offset(0, 10),),],
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [BoxShadow(color:Colors.grey[300],blurRadius: 2,offset:Offset(0, 15),),],
 
-      ):null,
+      ):BoxDecoration( 
+        color: Colors.blueGrey.shade900,
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [BoxShadow(color:Colors.grey[900],blurRadius: 2,offset:Offset(0, 15),),],
+
+      ) ,
       child: Row(
         children: <Widget>[
           Container( //container1

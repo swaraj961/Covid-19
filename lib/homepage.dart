@@ -87,41 +87,42 @@ class _HomepageState extends State<Homepage> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.topRight,
-                    colors: [
-                      Color(0xfffdd835),
-                      Color(
-                        0xfff57f17,
-                      ),
-                    ],
-                  ),
-                  image: DecorationImage(
-                      image: AssetImage('images/022-coronavirus.png'),
-                      colorFilter: ColorFilter.mode(
-                          Colors.yellow.withOpacity(0.35), BlendMode.dstOut),
-                      fit: BoxFit.fitHeight),
-                ),
-                width: double.infinity,
-                alignment: Alignment.center,
-                height: 120,
-                padding: EdgeInsets.all(10),
-                child: Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Text(
-                    DataSource.qoute,
-                    style: TextStyle(
-                      color: Color(0xff37474f),
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
+               Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color(0xfffdd835),
+                        Color(
+                          0xfff57f17,
+                        ),
+                      ],
                     ),
-                    textAlign: TextAlign.center,
+                    image: DecorationImage(
+                        image: AssetImage('images/022-coronavirus.png'),
+                        colorFilter: ColorFilter.mode(
+                            Colors.yellow.withOpacity(0.35), BlendMode.dstOut),
+                        fit: BoxFit.fitHeight),
+                  ),
+                  width: double.infinity,
+                  alignment: Alignment.center,
+                  height: 120,
+                  padding: EdgeInsets.all(10),
+                  child: Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      DataSource.qoute,
+                      style: TextStyle(
+                        color: Color(0xff37474f),
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
-              ),
+              
               SizedBox(
                 height: 10,
               ),
@@ -163,6 +164,7 @@ class _HomepageState extends State<Homepage> {
                   ],
                 ),
               ),
+              SizedBox(height:5),
               worldData == null
                   ? CircularProgressIndicator()
                   : WorldwidePannel(
@@ -181,12 +183,21 @@ class _HomepageState extends State<Homepage> {
                     ),
               Padding(
                 padding: EdgeInsets.all(20),
-                child: PieChart(dataMap: {
+                child: worldData==null ?Container(): PieChart(dataMap: {
                   'Confirmed': worldData['cases'].toDouble(),
                   'Active': worldData['active'].toDouble(),
                   'Recovered': worldData['recovered'].toDouble(),
                   'Death': worldData['deaths'].toDouble(),
-                }),
+                },
+                colorList: [
+                  Color(0xffff7675),
+                  Color(0xff74b9ff),
+                  Color(0xff55efc4),
+                  Color(0xffb7b7b7),
+                ]
+
+                
+                ),
               ),
               SizedBox(height: 10),
               Infopannel(), //info pannel
@@ -199,7 +210,7 @@ class _HomepageState extends State<Homepage> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height: 25),
+              SizedBox(height: 60),
               Text(
                 'Made with ❤ swaraj',
                 style: TextStyle(
@@ -208,7 +219,7 @@ class _HomepageState extends State<Homepage> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height: 50),
+              SizedBox(height: 40),
             ],
           ),
         ),

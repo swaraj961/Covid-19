@@ -7,6 +7,7 @@ import 'package:covidindia/pannels/worldwide_pannel.dart';
 import 'package:http/http.dart' as http;
 import 'package:covidindia/pannels/info_pannel.dart';
 import 'package:covidindia/pages/countrystats.dart';
+import 'package:pie_chart/pie_chart.dart';
 
 const String apiurl = 'https://corona.lmao.ninja/v2';
 
@@ -40,12 +41,13 @@ class _HomepageState extends State<Homepage> {
       print('cant fetch data');
     }
   }
+
 //comibe above two functions
-Future<dynamic> combineFuncationAlldata() async{
-getWorldwideData();
-getmostAffectedcountries();
-}
- 
+  Future<dynamic> combineFuncationAlldata() async {
+    getWorldwideData();
+    getmostAffectedcountries();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -80,9 +82,9 @@ getmostAffectedcountries();
         ),
         centerTitle: true,
       ),
-      body: RefreshIndicator( 
-        onRefresh:combineFuncationAlldata ,
-              child: SingleChildScrollView(
+      body: RefreshIndicator(
+        onRefresh: combineFuncationAlldata,
+        child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               Container(
@@ -149,7 +151,7 @@ getmostAffectedcountries();
                           );
                         },
                         child: Text(
-                          'Regional 🌎',
+                          '🔎 Regional',
                           style: TextStyle(
                               fontSize: 16,
                               color: Colors.white,
@@ -177,29 +179,36 @@ getmostAffectedcountries();
                   : MosteffectedPannel(
                       countrydata: countrydata,
                     ),
+              Padding(
+                padding: EdgeInsets.all(20),
+                child: PieChart(dataMap: {
+                  'Confirmed': worldData['cases'].toDouble(),
+                  'Active': worldData['active'].toDouble(),
+                  'Recovered': worldData['recovered'].toDouble(),
+                  'Death': worldData['deaths'].toDouble(),
+                }),
+              ),
               SizedBox(height: 10),
-              Infopannel(),
+              Infopannel(), //info pannel
               SizedBox(height: 20),
               Text(
                 '💉\tTogether We Can Win\t🏥',
                 style: TextStyle(
-                
                   fontSize: 20,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height:25),
+              SizedBox(height: 25),
               Text(
                 'Made with ❤ swaraj',
                 style: TextStyle(
-                
-                  fontSize:10,
+                  fontSize: 10,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height:50),
+              SizedBox(height: 50),
             ],
           ),
         ),

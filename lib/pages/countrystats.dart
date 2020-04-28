@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 
-const String apiurl = 'https://corona.lmao.ninja/v2';
+const String apiurl = 'https://disease.sh/v2';
 
 class CountryPage extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class _CountryPageState extends State<CountryPage> {
   Future<dynamic> getmostAffectedcountries() async {
     try {
       http.Response response =
-          await http.get('$apiurl/countries?yesterday=false&sort=deaths');
+          await http.get('$apiurl/countries?yesterday=false&sort=cases');
       setState(() {
         countrydata = jsonDecode(response.body);
       });

@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:covidindia/pannels/info_pannel.dart';
 import 'package:covidindia/pages/countrystats.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 const String apiurl = 'https://corona.lmao.ninja/v2';
 
@@ -83,8 +84,9 @@ class _HomepageState extends State<Homepage> {
         centerTitle: true,
       ),
       body: RefreshIndicator(
+       
         onRefresh: combineFuncationAlldata,
-        child: SingleChildScrollView(
+        child:SingleChildScrollView(
           child: Column(
             children: <Widget>[
                Container(
@@ -205,7 +207,22 @@ class _HomepageState extends State<Homepage> {
                 
                 ),
               ),
-              SizedBox(height: 10),
+              Container( 
+               
+               //last updated 
+                height: 45,
+                width: 140,
+                decoration: BoxDecoration(
+                    color: Colors.blueAccent,
+                    borderRadius: BorderRadius.circular(14)
+                ),
+                child: Padding(padding: EdgeInsets.all(2),
+                  child: Text('Last Updated ${ DateTime.now()},',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,),
+                  ),
+              
+              ),
+              SizedBox(height: 30),
               Infopannel(), //info pannel
               SizedBox(height: 20),
               Text(
@@ -217,13 +234,23 @@ class _HomepageState extends State<Homepage> {
                 ),
               ),
               SizedBox(height: 60),
-              Text(
-                'Made with ❤ swaraj',
-                style: TextStyle(
-                  fontSize: 10,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w700,
-                  color: Colors.grey
+              GestureDetector(
+                onTap: (){
+                  try{
+launch('https://www.linkedin.com/in/swaraj961');
+                  } catch (e){
+                    print(e);
+                  }
+
+                },
+                              child: Text(
+                  'Made with ❤ swaraj',
+                  style: TextStyle(
+                    fontSize: 10,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w700,
+                    color: Colors.grey
+                  ),
                 ),
               ),
               SizedBox(height: 40),

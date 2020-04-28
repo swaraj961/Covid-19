@@ -179,17 +179,27 @@ getmostAffectedcountries();
                     ),
               SizedBox(height: 10),
               Infopannel(),
-              SizedBox(height: 15),
+              SizedBox(height: 20),
               Text(
-                '💉\tTogether We Can Win\t❤',
+                '💉\tTogether We Can Win\t🏥',
                 style: TextStyle(
-                  color: Colors.black,
+                
                   fontSize: 20,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height: 50),
+              SizedBox(height:25),
+              Text(
+                'Made with ❤ swaraj',
+                style: TextStyle(
+                
+                  fontSize:10,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(height:50),
             ],
           ),
         ),

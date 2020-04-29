@@ -1,16 +1,19 @@
-# covidindia
+![star](https://img.shields.io/github/stars/swaraj961/Covid-19) ![issues](https://img.shields.io/github/issues/swaraj961/Covid-19) ![fork](https://img.shields.io/github/forks/swaraj961/Covid-19) ![love](https://img.shields.io/badge/open%20%20source-%E2%9D%A4-red) ![flutter](https://img.shields.io/badge/Flutter-Framework-blue) ![dev](https://img.shields.io/badge/developed%20by%20-swaraj%20routray-green) ![lise](https://img.shields.io/github/license/swaraj961/Covid-19)
 
-A new Flutter project.
+# Covid-19 Live Tracker ![Icon](https://github.com/swaraj961/Covid-19/blob/master/android/app/src/main/res/mipmap-hdpi/ic_launcher.png)
 
-## Getting Started
+-Made with ❤ India
 
-This project is a starting point for a Flutter application.
+## Highlighting Features -
+- Country wise critical data
+- Added Dark mode toggle 
+- Realtime search based on Latest Api 
+- pull to refresh Added (Date updates every 24hrs)
+- pie chart Added view added
+- last update timestamp 
 
-A few resources to get you started if this is your first Flutter project:
+## Download apk-
+- https://www.shorturl.at/dqY38
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# App UI 
+![Finished App](https://github.com/swaraj961/Covid-19/blob/master/images/covid.gif)

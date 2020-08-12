@@ -16,6 +16,7 @@
 - Special FAQ section for symptoms, how to does it spread etc
 - Donation ₹ section
 - Myth Buster section
+- User can search for specific country data and also get most affected countries with latest stats
 ## Download apk-
 - https://www.shorturl.at/dqY38
 - Api- https://corona.lmao.ninja/v2/all
